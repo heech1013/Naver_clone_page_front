@@ -1,0 +1,59 @@
+.blind {
+  /* 네이버의 blind 클래스 그대로 복사한 것임 */
+  position: absolute;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  margin: -1px;
+  width: 1px;
+  height: 1px;
+}
+
+#header-center {  /* div 태그의 경우에만 div를 생략할 수 있다. */
+  margin: 0 auto;  /* 가운데 정렬
+  - 속의 컨텐츠가 아니라 구역 자체가 가운데 정렬이 되는 것임.
+  - 만약 width를 따로 설정하지 않고 가운데 정렬을 하면 너비 100%의 가운데 정렬이므로 차이가 없게 된다.
+    참고할 만한 사이트에서 개발자 도구를 통해 width px을 참고하는 것도 좋을 것 같다. */
+  width: 1080px;
+  /* px: 상대적인 길이. 모니터 해상도에 따라 상이함. */
+}
+
+#header-search a {
+  text-decoration: none;  /* a 태그의 글자에 밑줄이 사라짐. */
+}
+
+/* #header-center h1 { ...} : 자손(자식 ~ 손자... 고손자 등) 태그 선택(위와 같은 태그 선택). */
+#header-search h1 {  /* 꺽쇄: 자식(바로 안에 들어있는 태그. <-> 자손) 선택 */
+  width: 198px;
+  height: 48px;
+  display: inline-block;
+  /* '이미지 스프라이트' : 관련된 이미지들을 하나의 이미지 파일로 묶어 사용. 서버 부담을 낮춘다.
+    원하는 이미지만 골라 보여주기 위해 height를 잘 조정해야 한다. */
+  /* background-image: 컨텐츠 뒤에 이미지 삽입. 여기서는 '네이버'라는 글자 뒤에 네이버 로고가 나타나게 됨. */
+  background-image: url(https://s.pstatic.net/static/www/img/uit/2019/sp_search.png);
+  /* background-position: 이미지의 세세한 위치 조정. 왼(-)~오(+)px 위(-)~아래(+) */
+  background-position: -4px -4px;
+  /* text-indent: 텍스트 들여쓰기. display: none;을 할 경우 텍스트 리더기도 읽을 수 없게 되므로
+    글자를 보이지 않게 하기 위해 사용한 다른 꼼수. */
+  /* background-repeat: no-repeat;  // background-image는 기본적으로 패턴처럼 반복해서 나타남. 이를 방지하기 위해서는 이렇게. */
+  text-indent: 100%;  /* h1에게 주어진 공간을 벗어난 바로 직후로 이동 */
+  overflow: hidden;  /* text-indent로 인해 넘친 부분을 보이지 않게 한다. */
+}
+/* header의 전체 너비는 1080px, 로고는 280px, 검색창은 520px이지만 나란히 정렬되지 않는다.
+  상위 div에 display: block;이 적용되어 있기 때문이다. 컨텐츠의 width가 280px이어도 나머지 부분을
+  margin으로 채워서 결국은 width를 100% 차지하게 된다.
+  => display: inline-block;으로 설정하면 된다. */
+
+#header-search h2 {
+  display: none;
+}
+
+#header-search fieldset {
+  margin-left: 20px;
+  border: 2px solid #03cf5d;
+  padding: 12px 0 12px 10px;  /* 시계방향: 위 오른쪽 아래쪽 왼쪽 */
+  width: 521px;
+  height: 49px;
+  display: inline-block;
+  
+}
+ 
