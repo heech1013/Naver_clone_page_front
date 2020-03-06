@@ -1,6 +1,12 @@
 * {  /* *은 CSS에서 모든 태그를 의미한다. */
   box-sizing: border-box;  /* contents, padding, border 값 다 합쳐서 width, height에서 설정한 값이 됨. 모든 태그를 해당 옵션으로 설정해두는 것이 좋다. */
 }
+
+html, body {  /* 브라우저 기본 css 제거 */
+  margin: 0;
+  padding: 0;
+}
+
 .blind {
   /* 네이버의 blind 클래스 그대로 복사한 것임 */
   position: absolute;
@@ -9,6 +15,18 @@
   margin: -1px;
   width: 1px;
   height: 1px;
+}
+
+#fixed {  /* fixed 예시
+  * position: fixed;의 경우 컨테이닝 블록은 뷰포트(그냥 화면)나 페이지 영역이다. */
+  position: fixed;
+  top: 50px;
+  right: 50px;
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  border: 1px solid black;
+  border-radius: 50px;
 }
 
 #header-center {  /* div 태그의 경우에만 div를 생략할 수 있다. */
@@ -126,3 +144,13 @@
   display: inline-block;
   margin: 14px;  /* <span>이 정 가운데에 있지 않다 -> 맞추는 방법은 여러가지가 있지만, position을 배우지 않은 상태에서는 선택지가 그렇게 많지 않다. */
 }
+
+/* 컨테이닝 블록과 position: relative; / absolute;
+ * 컨테이닝 블록: MDN 공식문서 참고, 예시 보며 익혀야..
+ * 기본 default 값:: position: static;  // 왼쪽에서 오른쪽, 위에서 아래.
+ * position: relative; :: 여기서 상대적이라는 말은 static일 때의 위치로부터의 상대적인 위치임. (top, left...)
+ * position: absolute; :: 화면을 기준으로 위치를 결정.
+  absolute 옵션에는 한 가지 규칙이 있다: 컨테이닝 블록이 position: static(default)이 아니고 fixed/absolute/relative/sticky 인 가장 가까운 조상의 내부 여백 영역이다.
+  즉 position: static이 아닌 조상이 없으면 최상단 html까지 올라가서 겉보기에 화면을 기준으로 붙게 되는 것이고,
+  만약 예를 들어 위처럼 search button이 fieldset을 기준으로 붙게 하고 싶다면 fieldset을 position: static이 아닌 옵션 중 하나로 변경하면 되는 것이다(위의 경우는 relative)
+*/
