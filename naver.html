@@ -15,7 +15,7 @@
       또한 띄어쓰기를 통해 하나의 태그에 여러 클래스를 적용할 수 있다. -->
     <header>
       <div id="fixed">고정</div>
-      <div id="header-center">  <!-- 가운데 정렬용 div. 가운데 정렬은 특수하게 가장 먼저 파악하여 구조를 잡아야 한다. -->
+      <div class="center-align">  <!-- 가운데 정렬용 div. 가운데 정렬은 특수하게 가장 먼저 파악하여 구조를 잡아야 한다. -->
         <div>
           <!-- display: inline-block;의 효과로 배치하려는데 컨텐츠가 글자 뿐이라면 span 태그를 써도 된다.
             다른 점은, span 태그는 display: inline;이다.
@@ -47,14 +47,22 @@
       </div>
     </header>
     <nav>
-      <ul> <!-- unordered list -->
-        <li>카페</li> <!-- list item -->
-        <li>블로그</li>
-        <li>지식인</li>
-        <li>쇼핑</li>
-        <li>네이버페이</li>
-        <li>네이버쇼핑</li>
-      </ul>
+      <div class="center-align">
+        <ul> <!-- unordered list -->
+          <li>카페</li> <!-- list item -->
+     <!-- <li>  // 생략(text가 아니라 이미지 스프라이트를 이용한 링크 이미지임)
+            <a href="/...">
+              <span></span>
+              <span class="blind">메일</span>
+            </a>
+          </li> -->
+          <li>블로그</li>
+          <li>지식인</li>
+          <li>쇼핑</li>
+          <li>네이버페이</li>
+          <li>네이버쇼핑</li>
+        </ul>
+      </div>
     </nav>
     <main>
       <h2>실시간 검색어</h2>

@@ -29,7 +29,10 @@ html, body {  /* 브라우저 기본 css 제거 */
   border-radius: 50px;
 }
 
-#header-center {  /* div 태그의 경우에만 div를 생략할 수 있다. */
+/* #header-center -> .center-align(class)로 수정.
+ * 여러 번 사용되는 경우 class로 바꿔준다. */
+.center-align {  
+    /* (#header-center였을 때 설명)div 태그의 경우에만 div를 생략할 수 있다. */
   margin: 0 auto;  /* 가운데 정렬
   - 속의 컨텐츠가 아니라 구역 자체가 가운데 정렬이 되는 것임.
   - 만약 width를 따로 설정하지 않고 가운데 정렬을 하면 너비 100%의 가운데 정렬이므로 차이가 없게 된다.
@@ -154,3 +157,32 @@ html, body {  /* 브라우저 기본 css 제거 */
   즉 position: static이 아닌 조상이 없으면 최상단 html까지 올라가서 겉보기에 화면을 기준으로 붙게 되는 것이고,
   만약 예를 들어 위처럼 search button이 fieldset을 기준으로 붙게 하고 싶다면 fieldset을 position: static이 아닌 옵션 중 하나로 변경하면 되는 것이다(위의 경우는 relative)
 */
+
+nav ul {
+  /* 브라우저 기본 CSS 제거 */
+  margin: 0;
+  padding: 0;
+
+  list-style: none;  /* <li> 사용 시 나타나는 까만 동그라미 점 없애기 */
+}
+
+nav li {
+  display: inline-block;
+  margin-left: 14px;
+}
+
+/* 선택자
+ * 콜론(:) 뒤 first-child -> 첫 번째 자식을 가리킴.
+ * :nth-child(3) -> 세 번째 자식을 가리킴.
+ * :nth-child()는 실무에서는 최대한 안쓰는 것이 좋다. 순서에 의존한다는 측면에서 유지보수에 좋지 않다. 차라리 class를 주는 것이 좋겠다.
+
+nav li:first-child span:first-child {  // <nav>의 자식 <li> 중 첫 번째 자식인 <li>의 <span> 자식 중 첫 번째 자식인 <span>을 가리킴.
+  width: 25px;
+  height: 16px;
+  background-position: 0 -285px;
+} */
+nav li:first-child {
+  margin-left: 0;
+}
+/* nav li { margin-left: 14px; }를 덮어 씌웠다.
+ * 제로초 홈페이지 CSS 우선순위 참고 */
